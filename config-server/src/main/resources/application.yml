@@ -10,7 +10,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/kullaniciadi/edunova.git
+          uri: https://github.com/merendemir/edunova.git
           default-label: discovery
           search-paths:
             - configurations
