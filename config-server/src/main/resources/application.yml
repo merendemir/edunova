@@ -11,7 +11,7 @@ spring:
       server:
         git:
           uri: https://github.com/merendemir/edunova.git
-          default-label: discovery
+          default-label: master
           search-paths: configurations/
 encrypt:
   key: edunova-encryptsecret-key-123
