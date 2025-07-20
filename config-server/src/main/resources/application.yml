@@ -1,15 +1,19 @@
 server:
   port: 2703
+
 spring:
   application:
     name: edunova-configuration-server
   profiles:
-    active: native
+    active: git
   cloud:
     config:
       server:
-        native:
-          search-locations: file:../configurations
+        git:
+          uri: https://github.com/kullaniciadi/edunova.git
+          default-label: discovery
+          search-paths:
+            - configurations
 encrypt:
   key: edunova-encryptsecret-key-123
 
