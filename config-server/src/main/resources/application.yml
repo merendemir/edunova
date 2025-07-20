@@ -1,15 +1,20 @@
 server:
-  port: 8888
+  port: 2703
+
 spring:
   application:
     name: edunova-configuration-server
   profiles:
-    active: native
+    active: git
   cloud:
     config:
       server:
-        native:
-          search-locations: file:../configurations
+        git:
+          uri: https://github.com/merendemir/edunova.git
+          default-label: master
+          search-paths: configurations/
+encrypt:
+  key: edunova-encryptsecret-key-123
 
 logging:
   level:
