@@ -39,11 +39,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.edunova</groupId>
-            <artifactId>commons</artifactId>
-            <version>1.0.0</version>
-        </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>
