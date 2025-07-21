@@ -1,17 +1,21 @@
-package com.edunova.commons.entity;
+package com.edunova.commons.data.entity;
 
-import com.edunova.commons.enumerations.EntityStatus;
+import com.edunova.commons.data.enumerations.EntityStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.FieldNameConstants;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 @Getter
 @MappedSuperclass
+@FieldNameConstants
 public abstract class BaseEntity {
 
     @Column(name = "status")
+    @Setter
     private EntityStatus status;
 
     @CreationTimestamp

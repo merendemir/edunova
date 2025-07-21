@@ -1,4 +1,4 @@
-package com.edunova.commons.service;
+package com.edunova.commons.web.service;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;

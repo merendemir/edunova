@@ -1,4 +1,4 @@
-package com.edunova.commons.enumerations;
+package com.edunova.commons.data.enumerations;
 
 import lombok.Getter;
 
