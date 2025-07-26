@@ -32,7 +32,10 @@ management:
 eureka:
   instance:
     health-check-url-path: /actuator/health
+    prefer-ip-address: true
   client:
+    register-with-eureka: true
+    fetch-registry: true
     healthcheck:
       enabled: true
     service-url:
