@@ -1,6 +1,8 @@
 spring:
   application:
     name: user-service
-  config:
-    import: configserver:http://localhost:2703
-    label: user-service
+  cloud:
+    config:
+      uri: http://localhost:2703
+      failFast: true
+      label: user-service

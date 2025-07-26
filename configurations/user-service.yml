@@ -6,11 +6,10 @@ spring:
     name: user-service
   
   datasource:
-    url: jdbc:postgresql://192.168.199:5432/edunova
+    url: jdbc:postgresql://192.168.1.199:5432/edunova
     username: postgres
     password: secret
-    driver-class-name: org.postgresql.Driver
-  
+
   jpa:
     hibernate:
       ddl-auto: update

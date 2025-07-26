@@ -1,5 +1,7 @@
 spring:
   application:
     name: discovery-server
-  config:
-    import: configserver:http://localhost:2703
+  cloud:
+    config:
+      uri: http://localhost:2703
+      failFast: true
