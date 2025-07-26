@@ -6,7 +6,7 @@ spring:
     name: user-service
   
   datasource:
-    url: jdbc:postgresql://localhost:5432/edunova_user
+    url: jdbc:postgresql://192.168.199:5432/edunova
     username: postgres
     password: secret
     driver-class-name: org.postgresql.Driver
