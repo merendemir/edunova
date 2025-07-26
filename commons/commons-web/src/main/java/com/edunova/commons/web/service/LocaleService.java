@@ -20,6 +20,7 @@ public class LocaleService {
 
     @PostConstruct
     private void init() {
+        System.out.printf("LocaleService initialized with messageSource: %s%n", messageSource);
         staticMessageSource = this.messageSource;
     }
 

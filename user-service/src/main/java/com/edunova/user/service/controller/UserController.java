@@ -1,6 +1,6 @@
 package com.edunova.user.service.controller;
 
-import com.edunova.commons.data.request.PageRequest;
+import com.edunova.commons.data.request.PageableRequest;
 import com.edunova.commons.data.response.PageResponse;
 import com.edunova.commons.web.api.ResponseCreator;
 import com.edunova.commons.web.api.RestResponse;
@@ -27,8 +27,8 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<RestResponse<PageResponse<UserResponse>>> findAll(@Valid PageRequest pageRequest) {
-        PageResponse<UserResponse> response = userService.findAll(pageRequest);
+    public ResponseEntity<RestResponse<PageResponse<UserResponse>>> findAll(@Valid PageableRequest pageableRequest) {
+        PageResponse<UserResponse> response = userService.findAll(pageableRequest);
         return ResponseCreator.ok(response, "user.list.success");
     }
 

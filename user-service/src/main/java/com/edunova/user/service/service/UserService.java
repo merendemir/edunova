@@ -1,6 +1,6 @@
 package com.edunova.user.service.service;
 
-import com.edunova.commons.data.request.PageRequest;
+import com.edunova.commons.data.request.PageableRequest;
 import com.edunova.commons.data.response.PageResponse;
 import com.edunova.commons.data.mapper.PageMappingService;
 import com.edunova.user.service.data.request.CreateUserRequest;
@@ -12,7 +12,6 @@ import com.edunova.user.service.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -30,8 +29,8 @@ public class UserService {
         return userMapper.toResponse(savedUser);
     }
 
-    public PageResponse<UserResponse> findAll(PageRequest pageRequest) {
-        Page<ApplicationUser> userPage = userRepository.findAll(pageRequest.toPageable());
+    public PageResponse<UserResponse> findAll(PageableRequest pageableRequest) {
+        Page<ApplicationUser> userPage = userRepository.findAll(pageableRequest.toPageable());
         return PageMappingService.mapToPageResponse(userPage, userMapper::toResponse);
     }
 
