@@ -7,19 +7,21 @@ import com.edunova.user.service.data.vo.UserVO;
 import com.edunova.user.service.entity.ApplicationUser;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
 @Mapper(componentModel = "spring")
-public interface UserMapper {
+public abstract class UserMapper {
     
-    ApplicationUser toEntity(CreateUserRequest request);
-    UserVO toVO(ApplicationUser entity);
-    UserResponse toResponse(ApplicationUser entity);
-    UserResponse toResponse(UserVO vo);
+    public abstract ApplicationUser toEntity(CreateUserRequest request);
+    public abstract UserVO toVO(ApplicationUser entity);
+    public abstract UserResponse toResponse(ApplicationUser entity);
+    public abstract UserResponse toResponse(UserVO vo);
     
-    List<UserVO> toVOList(List<ApplicationUser> entities);
-    List<UserResponse> toResponseList(List<ApplicationUser> entities);
-    List<UserResponse> voListToResponseList(List<UserVO> vos);
+    public  abstract List<UserVO> toVOList(List<ApplicationUser> entities);
+    public abstract List<UserResponse> toResponseList(List<ApplicationUser> entities);
+    public abstract List<UserResponse> voListToResponseList(List<UserVO> vos);
 
-    void updateEntity(@MappingTarget ApplicationUser entity, UpdateUserRequest request);
+    public abstract void updateEntity(@MappingTarget ApplicationUser entity, UpdateUserRequest request);
 }
