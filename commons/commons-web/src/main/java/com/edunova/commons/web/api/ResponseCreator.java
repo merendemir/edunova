@@ -34,6 +34,10 @@ public class ResponseCreator<T> {
         return success(HttpStatus.CREATED, data, "operation.created");
     }
 
+    public static <T> ResponseEntity<RestResponse<T>> created(T data, String messageCode) {
+        return success(HttpStatus.CREATED, data, "operation.created", messageCode);
+    }
+
     public static <T> ResponseEntity<RestResponse<T>> created(T data, String messageCode, String... params) {
         return success(HttpStatus.CREATED, data, messageCode, params);
     }
@@ -76,6 +80,14 @@ public class ResponseCreator<T> {
 
     public static <T> ResponseEntity<RestResponse<T>> conflict(String messageCode, String... params) {
         return error(HttpStatus.CONFLICT, messageCode, params);
+    }
+
+    public static <T> ResponseEntity<RestResponse<T>> noContent() {
+        return success(HttpStatus.NO_CONTENT, null, "operation.success");
+    }
+
+    public static <T> ResponseEntity<RestResponse<T>> noContent(String messageCode, String... params) {
+        return success(HttpStatus.NO_CONTENT, null, messageCode, params);
     }
 
     public static class ResponseCreatorBuilder<T> {
