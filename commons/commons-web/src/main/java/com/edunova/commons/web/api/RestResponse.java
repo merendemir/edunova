@@ -15,7 +15,6 @@ public class RestResponse<T> {
     private final boolean isSuccess;
     private final String locale ;
 
-
     private RestResponse(T data, String message, boolean isSuccess) {
         this.data = data;
         this.message = message;

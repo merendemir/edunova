@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 public class ResponseCreator<T> {
 
     private static <T> ResponseEntity<RestResponse<T>> success(HttpStatus status, T data, String messageCode, String... params) {
-        return ResponseEntity.status(status).body(RestResponse.success(data, LocaleService.getMessage(messageCode, params)));
+        return ResponseEntity.status(status).body(RestResponse.success(data, messageCode, params));
     }
 
     private static <T> ResponseEntity<RestResponse<T>> error(HttpStatus status, String messageCode, String... params) {
@@ -32,6 +32,10 @@ public class ResponseCreator<T> {
 
     public static <T> ResponseEntity<RestResponse<T>> created(T data) {
         return success(HttpStatus.CREATED, data, "operation.created");
+    }
+
+    public static <T> ResponseEntity<RestResponse<T>> created(T data, String messageCode) {
+        return success(HttpStatus.CREATED, data, messageCode);
     }
 
     public static <T> ResponseEntity<RestResponse<T>> created(T data, String messageCode, String... params) {
@@ -76,6 +80,14 @@ public class ResponseCreator<T> {
 
     public static <T> ResponseEntity<RestResponse<T>> conflict(String messageCode, String... params) {
         return error(HttpStatus.CONFLICT, messageCode, params);
+    }
+
+    public static <T> ResponseEntity<RestResponse<T>> noContent() {
+        return success(HttpStatus.NO_CONTENT, null, "operation.success");
+    }
+
+    public static <T> ResponseEntity<RestResponse<T>> noContent(String messageCode, String... params) {
+        return success(HttpStatus.NO_CONTENT, null, messageCode, params);
     }
 
     public static class ResponseCreatorBuilder<T> {

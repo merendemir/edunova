@@ -4,8 +4,6 @@ server:
 spring:
   application:
     name: edunova-configuration-server
-  profiles:
-    active: git
   cloud:
     config:
       server:
@@ -15,7 +13,3 @@ spring:
           search-paths: configurations/
 encrypt:
   key: edunova-encryptsecret-key-123
-
-logging:
-  level:
-    org.springframework.cloud.config: DEBUG
