@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: authorization-service
+  config:
+    import: configserver:http://localhost:2703
+  cloud:
+    config:
+      fail-fast: true
