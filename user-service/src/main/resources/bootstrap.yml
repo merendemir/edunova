@@ -5,5 +5,4 @@ spring:
     import: configserver:http://localhost:2703
   cloud:
     config:
-      label: user-service
       fail-fast: true

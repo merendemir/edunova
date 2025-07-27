@@ -1,6 +1,6 @@
 spring:
   application:
-    name: authorization-service
+    name: authorization-server
   config:
     import: configserver:http://localhost:2703
   cloud:

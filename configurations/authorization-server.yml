@@ -4,7 +4,6 @@ server:
 spring:
   application:
     name: authorization-server
-  
   datasource:
     url: jdbc:postgresql://192.168.1.199:5432/edunova
     username: postgres
