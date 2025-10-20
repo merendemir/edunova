@@ -1,14 +1,10 @@
-package com.edunova.user.service.data.response;
+package com.edunova.user.service.data.vo;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
-public class UserResponse {
+@Data
+public class ApplicationUserVO {
     private Long id;
     private String firstName;
     private String lastName;

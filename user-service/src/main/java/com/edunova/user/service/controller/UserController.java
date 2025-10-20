@@ -6,8 +6,8 @@ import com.edunova.commons.web.api.ResponseCreator;
 import com.edunova.commons.web.api.RestResponse;
 import com.edunova.user.service.data.request.CreateUserRequest;
 import com.edunova.user.service.data.request.UpdateUserRequest;
-import com.edunova.user.service.data.response.UserResponse;
-import com.edunova.user.service.service.UserService;
+import com.edunova.user.service.data.response.ApplicationUserResponse;
+import com.edunova.user.service.service.ApplicationUserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,35 +18,35 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class UserController {
 
-    private final UserService userService;
+    private final ApplicationUserService applicationUserService;
 
     @PostMapping
-    public ResponseEntity<RestResponse<UserResponse>> create(@Valid @RequestBody CreateUserRequest request) {
-        UserResponse response = userService.create(request);
+    public ResponseEntity<RestResponse<ApplicationUserResponse>> create(@Valid @RequestBody CreateUserRequest request) {
+        ApplicationUserResponse response = applicationUserService.create(request);
         return ResponseCreator.created(response, "user.created");
     }
 
     @GetMapping
-    public ResponseEntity<RestResponse<PageResponse<UserResponse>>> findAll(@Valid PageableRequest pageableRequest) {
-        PageResponse<UserResponse> response = userService.findAll(pageableRequest);
+    public ResponseEntity<RestResponse<PageResponse<ApplicationUserResponse>>> findAll(@Valid PageableRequest pageableRequest) {
+        PageResponse<ApplicationUserResponse> response = applicationUserService.findAll(pageableRequest);
         return ResponseCreator.ok(response, "user.list.success");
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<RestResponse<UserResponse>> findById(@PathVariable Long id) {
-        UserResponse response = userService.findById(id);
+    public ResponseEntity<RestResponse<ApplicationUserResponse>> findById(@PathVariable Long id) {
+        ApplicationUserResponse response = applicationUserService.findById(id);
         return ResponseCreator.ok(response, "user.found");
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<RestResponse<UserResponse>> update(@PathVariable Long id, @Valid @RequestBody UpdateUserRequest request) {
-        UserResponse response = userService.update(id, request);
+    public ResponseEntity<RestResponse<ApplicationUserResponse>> update(@PathVariable Long id, @Valid @RequestBody UpdateUserRequest request) {
+        ApplicationUserResponse response = applicationUserService.update(id, request);
         return ResponseCreator.ok(response, "user.updated");
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<RestResponse<Void>> delete(@PathVariable Long id) {
-        userService.delete(id);
+        applicationUserService.delete(id);
         return ResponseCreator.noContent("user.deleted");
     }
 }
